@@ -1,37 +1,29 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Menu
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status  # Imported for clean HTTP responses
 
-# 1. Index / Home View
-def index(request):
-    return render(request, 'index.html', {})
+# 1. Capitalised Menu and Booking to match models.py
+from .models import Menu, Booking  
+# 2. Capitalised MenuSerializer to match standard naming
+from .serializers import BookingSerializer, MenuSerializer  
 
-# 2. About View
-def about(request):
-    return render(request, 'about.html', {})
+class BookingView(APIView):  # Capitalised class name following Python standards
 
-# 3. Book / Reservation View
-def book(request):
-    return render(request, 'book.html', {})
+    def get(self, request):
+         # 3. Changed lowercase booking to capital Booking
+         items = Booking.objects.all()  
+         serializer = BookingSerializer(items, many=True)
+         return Response(serializer.data)  # Return JSON
 
-# 4. Menu View
-def menu(request):
-    menu_data = Menu.objects.all()
-    return render(request, 'menu.html', {"menu": menu_data})
+class MenuView(APIView):  # Capitalised class name following Python standards
 
-# 5. Say Hello View (API/Text test)
-def sayHello(request):
-    return HttpResponse('Hello World')
+    def post(self, request):
+         # 4. Changed lowercase menuSerializer to MenuSerializer
+         serializer = MenuSerializer(data=request.data)
 
-# Add this to the bottom of your reservation/views.py file
-
-def display_menu_item(request, pk=None):
-    if pk:
-        # Tries to find the specific menu item by its primary key (ID)
-        try:
-            item = Menu.objects.get(pk=pk)
-        except Menu.DoesNotExist:
-            item = None
-    else:
-        item = ""
-    return render(request, 'menu_item.html', {"menu_item": item})
+         if serializer.is_valid():
+              serializer.save()
+              return Response({"status": "success", "data": serializer.data}, status=status.HTTP_201_CREATED)
+         
+         # 5. Added an error return if the incoming data is invalid
+         return Response({"status": "error", "data": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)

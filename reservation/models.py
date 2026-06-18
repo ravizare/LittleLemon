@@ -1,20 +1,17 @@
 from django.db import models
 
-
+# Changed "menu" to "Menu" with a capital M to fix the import errors
 class Menu(models.Model):
-    name = models.CharField(max_length=200)
-    Price = models.IntegerField(default=0)      # Added default=0
-    Inventory = models.IntegerField(default=0)  # Added default=0
-    description = models.TextField(default="")
+   item = models.CharField(max_length=100)
+   price = models.IntegerField()
+
+   def __str__(self):
+       return self.item
+
+class Booking(models.Model):
+    name = models.CharField(max_length=255)
+    no_of_guests = models.IntegerField()
+    booking_date = models.DateTimeField()
 
     def __str__(self):
         return self.name
-
-
-class Booking(models.Model):
-    Name = models.CharField(max_length=255)
-    No_of_guests = models.IntegerField()
-    BookingDate = models.DateTimeField()
-
-    def __str__(self):
-        return self.Name

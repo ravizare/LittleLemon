@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Menu, Booking
+# Change 'menu, booking' to capital letters 'Menu, Booking'
+from .models import Menu, Booking 
 
-admin.site.register(Menu)
 admin.site.register(Booking)
+admin.site.register(Menu)
