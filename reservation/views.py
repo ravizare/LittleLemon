@@ -28,7 +28,9 @@ class SingleMenuItemView(generics.RetrieveUpdateAPIView, generics.DestroyAPIView
     serializer_class = MenuItemSerializer
 
 # --- 4. Secured View (Function-Based View with Token/Session Authentication) ---
-@api_view(['GET']) # Explicitly added HTTP method 'GET'
+# Look at the bottom of your reservation/views.py and ensure it looks like this:
+
+@api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def securedview(request):
-    return Response({"message": "needs authentication"})
+def msg(request):
+    return Response({"message": "This view is protected"})

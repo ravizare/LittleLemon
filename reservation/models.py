@@ -4,12 +4,18 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
 
+# Updated MenuItem Model to match your course requirements
 class MenuItem(models.Model):
-   title = models.CharField(max_length=100) 
-   price = models.IntegerField()
+    title = models.CharField(max_length=255)
+    price = models.DecimalField(max_digits=6, decimal_places=2)  # Changed to precise DecimalField
+    inventory = models.SmallIntegerField()  # Added inventory column tracking
 
-   def __str__(self):
-       return self.title
+    def __str__(self):
+        return self.title
+
+    # Course method to return formatted item text
+    def get_item(self):
+        return f'{self.title} : {str(self.price)}'
 
 class Booking(models.Model):
     name = models.CharField(max_length=255)
@@ -20,7 +26,6 @@ class Booking(models.Model):
         return self.name
 
 # --- Token Generation via Signals ---
-# This automatically creates a security token whenever a new User instance is created
 @receiver(post_save, sender=settings.AUTH_USER_MODEL)
 def create_auth_token(sender, instance=None, created=False, **kwargs):
     if created:
