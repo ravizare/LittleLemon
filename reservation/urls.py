@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # Updated to match the capitalized class names and added .as_view()
-    path('menu/', views.MenuView.as_view(), name='menu'),
-    path('booking/', views.BookingView.as_view(), name='booking'),
+    # Main Menu View Paths (DRF Generic Views)
+    path('menu/items', views.MenuItemsView.as_view(), name='menu_items'),
+    path('menu/items/<int:pk>', views.SingleMenuItemView.as_view(), name='single_menu_item'),
 ]

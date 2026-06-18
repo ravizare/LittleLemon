@@ -1,6 +1,7 @@
 from django.contrib import admin
-# Change 'menu, booking' to capital letters 'Menu, Booking'
-from .models import Menu, Booking 
+# Changed Menu to MenuItem to match your new models.py file
+from .models import MenuItem, Booking  
 
 admin.site.register(Booking)
-admin.site.register(Menu)
+# Update the register line to use MenuItem as well
+admin.site.register(MenuItem)  
