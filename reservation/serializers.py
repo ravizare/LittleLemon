@@ -1,13 +1,18 @@
 from rest_framework import serializers
-# 1. Imported both Booking and Menu from your models
+from django.contrib.auth.models import User  # Imported the built-in User model
 from .models import Booking, Menu  
+
+# New UserSerializer class to serialize the User model instance
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['url', 'username', 'email', 'groups'] # Specifies the fields to be exposed via the API
 
 class BookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
         fields = '__all__'
 
-# 2. Added MenuSerializer to handle menu POST requests from views.py
 class MenuSerializer(serializers.ModelSerializer):
     class Meta:
         model = Menu
