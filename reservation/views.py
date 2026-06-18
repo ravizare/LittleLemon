@@ -1,16 +1,17 @@
-from rest_framework import viewsets, generics, permissions  # 1. Added 'permissions' here
+from rest_framework import viewsets, generics, permissions
 from rest_framework.views import APIView
-from rest_framework.response import Response
+from rest_framework.response import Response  # Needed for your securedview to work
+from rest_framework.decorators import api_view, permission_classes 
+from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.models import User
 from .models import MenuItem, Booking  
 from .serializers import UserSerializer, BookingSerializer, MenuItemSerializer  
 
 # --- 1. User ViewSet for the DefaultRouter ---
-# Added right here at the top of your view classes
 class UserViewSet(viewsets.ModelViewSet):
-   queryset = User.objects.all() 
-   serializer_class = UserSerializer
-   permission_classes = [permissions.IsAuthenticated] # Restricts access to logged-in users only
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 # --- 2. Booking ViewSet for the Tables Router ---
 class BookingViewSet(viewsets.ModelViewSet):
@@ -25,3 +26,9 @@ class MenuItemsView(generics.ListCreateAPIView):
 class SingleMenuItemView(generics.RetrieveUpdateAPIView, generics.DestroyAPIView):     
     queryset = MenuItem.objects.all() 
     serializer_class = MenuItemSerializer
+
+# --- 4. Secured View (Function-Based View with Token/Session Authentication) ---
+@api_view(['GET']) # Explicitly added HTTP method 'GET'
+@permission_classes([IsAuthenticated])
+def securedview(request):
+    return Response({"message": "needs authentication"})
