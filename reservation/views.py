@@ -19,13 +19,17 @@ class BookingViewSet(viewsets.ModelViewSet):
     serializer_class = BookingSerializer
 
 # --- 3. Menu Items Views using DRF Generics ---
+# Look for your MenuItemsView class inside reservation/views.py and update it:
+
 class MenuItemsView(generics.ListCreateAPIView): 
+    permission_classes = [IsAuthenticated]  # Enforces token protection for the menu list
     queryset = MenuItem.objects.all() 
     serializer_class = MenuItemSerializer
 
 class SingleMenuItemView(generics.RetrieveUpdateAPIView, generics.DestroyAPIView):     
     queryset = MenuItem.objects.all() 
     serializer_class = MenuItemSerializer
+
 
 # --- 4. Secured View (Function-Based View with Token/Session Authentication) ---
 # Look at the bottom of your reservation/views.py and ensure it looks like this:
