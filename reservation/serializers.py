@@ -7,13 +7,13 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['url', 'username', 'email', 'groups']
 
-# Step 2: ModelSerializer for Booking with all fields exposed
 class BookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
         fields = '__all__'
 
+# Course method explicitly tracking 'id', 'title', 'price', and 'inventory'
 class MenuItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = MenuItem
-        fields = '__all__'
+        fields = ['id', 'title', 'price', 'inventory']
