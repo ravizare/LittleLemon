@@ -5,8 +5,8 @@ from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.test import APIClient
 
-from reservation.models import MenuItem
-from reservation.serializers import MenuItemSerializer
+from restaurant.models import MenuItem
+from restaurant.serializers import MenuItemSerializer
 
 
 class MenuViewTest(TestCase):

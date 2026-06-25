@@ -1,6 +1,6 @@
 from django.test import TestCase
 # Replace 'restaurant' with your actual Django app name if it is different
-from reservation.models import MenuItem 
+from restaurant.models import MenuItem 
 
 class MenuItemTest(TestCase):
     def test_get_item(self):
