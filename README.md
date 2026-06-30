@@ -1,8 +1,8 @@
-# 🍋 Little Lemon Restaurant Web Application
+# 🍋 Little Lemon Restaurant Web Application 
 
 A Django-based restaurant management web application developed as part of the Meta Back-End Developer Professional Certificate Capstone Project.
 
-## 📌 Project Overview
+##  Project Description
 
 Little Lemon is a restaurant web application that allows users to:
 
@@ -14,7 +14,7 @@ Little Lemon is a restaurant web application that allows users to:
 
 ---
 
-## 🚀 Features
+##  Features/Tools
 
 - Django Framework
 - Django REST Framework (DRF)
@@ -30,7 +30,7 @@ Little Lemon is a restaurant web application that allows users to:
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies/Languages Used
 
 - Python 3
 - Django
@@ -43,7 +43,7 @@ Little Lemon is a restaurant web application that allows users to:
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 LittleLemon/
@@ -58,7 +58,7 @@ LittleLemon/
 
 ---
 
-## ⚙️ Installation
+##  Installation
 
 Clone the repository
 
@@ -148,7 +148,7 @@ SCREENSHOTS of project work :-
 3. Admin page
 <img width="640" height="480" alt="2026-06-18 (7)" src="https://github.com/user-attachments/assets/9ceb8e3f-abb7-467b-8903-389926ec3dab" />
 
-
+---
 
 4. Table Bookings Screenshot
 <img width="640" height="480" alt="2026-06-18 (11)" src="https://github.com/user-attachments/assets/08807c4f-5274-465f-b5e3-e6b509cf189a" />
