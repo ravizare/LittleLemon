@@ -141,7 +141,7 @@ SCREENSHOTS of project work :-
 
 
 2. API Auth page
-<img width="946" height="1641" alt="127 0 0 1_8000_api_" src="https://github.com/user-attachments/assets/513c7208-c768-4638-86a7-5c283f45547b" />
+<img width="1280" height="1024" alt="http127 0 0 18000Iapi-auth" src="https://github.com/user-attachments/assets/83e88b90-4e0c-4721-8c18-3162e4d88c32" />
 
 
 
