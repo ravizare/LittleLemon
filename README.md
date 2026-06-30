@@ -67,48 +67,45 @@ git clone https://github.com/ravizare/LittleLemon.git
 ```
 
 Navigate into the project
-
-```bash
+---
 cd LittleLemon
-```
+---
 
 Create a virtual environment
 
-```bash
+---
 python -m venv .venv
-```
+
 
 Activate the virtual environment
 
 Windows
-
-```bash
+---
 .venv\Scripts\activate
-```
-
+---
 Install dependencies
 
-```bash
+---
 pip install -r requirements.txt
-```
+---
 
 Run migrations
 
-```bash
+---
 python manage.py migrate
-```
+---
 
 Start the development server
 
-```bash
+---
 python manage.py runserver
-```
+---
 
 Open your browser
 
-```
+---
 http://127.0.0.1:8000/
-```
+---
 
 ---
 
