@@ -180,7 +180,21 @@ Insomnia testing applications Screenshots :-
 
 
 2. Header setting with created Token in Insomnia app
-<img width="1280" height="1024" alt="2026-06-22 (7)" src="https://github.com/user-attachments/assets/2f5751ab-160d-4ab4-a992-6c8916403c79" />
+<img width="400" height="400" alt="2026-06-22 (7)" src="https://github.com/user-attachments/assets/2f5751ab-160d-4ab4-a992-6c8916403c79" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
